@@ -38,7 +38,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-blue-600 shadow-md">
+    <nav className="bg-[#39A900] shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -50,17 +50,17 @@ export default function Navbar() {
           
           {currentUser && (
             <div className="hidden md:flex md:items-center md:space-x-4">
-              <Link to="/" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/" className="text-white hover:bg-[#2D8C00] px-3 py-2 rounded-md text-sm font-medium">
                 Inicio
               </Link>
-              <Link to="/asistencia" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/asistencia" className="text-white hover:bg-[#2D8C00] px-3 py-2 rounded-md text-sm font-medium">
                 Asistencia
               </Link>
-              <Link to="/equipos" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+              <Link to="/equipos" className="text-white hover:bg-[#2D8C00] px-3 py-2 rounded-md text-sm font-medium">
                 Equipos
               </Link>
               {userRole === 'Administrativo' && (
-                <Link to="/admin" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium">
+                <Link to="/admin" className="text-white hover:bg-[#2D8C00] px-3 py-2 rounded-md text-sm font-medium">
                   Administración
                 </Link>
               )}
@@ -73,7 +73,7 @@ export default function Navbar() {
                 <div>
                   <button
                     onClick={toggleMenu}
-                    className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-600 focus:ring-white"
+                    className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#39A900] focus:ring-white"
                   >
                     {userPhoto ? (
                       <img
@@ -82,7 +82,7 @@ export default function Navbar() {
                         alt="Foto de perfil"
                       />
                     ) : (
-                      <div className="h-8 w-8 rounded-full bg-blue-800 flex items-center justify-center text-white">
+                      <div className="h-8 w-8 rounded-full bg-[#2D8C00] flex items-center justify-center text-white">
                         {currentUser.displayName ? currentUser.displayName.charAt(0).toUpperCase() : 
                          currentUser.email ? currentUser.email.charAt(0).toUpperCase() : 'U'}
                       </div>
@@ -114,13 +114,13 @@ export default function Navbar() {
               <div className="flex space-x-2">
                 <Link
                   to="/login"
-                  className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-white hover:bg-[#2D8C00] px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Iniciar Sesión
                 </Link>
                 <Link
                   to="/registro"
-                  className="bg-white text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md text-sm font-medium"
+                  className="bg-[#FF6600] text-white hover:bg-[#E65C00] px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Registrarse
                 </Link>
@@ -130,7 +130,7 @@ export default function Navbar() {
             <div className="md:hidden ml-2">
               <button
                 onClick={toggleMenu}
-                className="bg-blue-700 inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-blue-800 focus:ring-white"
+                className="bg-[#2D8C00] inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-[#196400] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#39A900] focus:ring-white"
               >
                 <svg
                   className={`${isOpen ? 'hidden' : 'block'} h-6 w-6`}
@@ -157,39 +157,39 @@ export default function Navbar() {
       </div>
       
       {/* Menú móvil */}
-      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-blue-700`}>
+      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden bg-[#2D8C00]`}>
         {currentUser ? (
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Inicio
             </Link>
-            <Link to="/asistencia" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/asistencia" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Asistencia
             </Link>
-            <Link to="/equipos" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/equipos" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Equipos
             </Link>
             {userRole === 'Administrativo' && (
-              <Link to="/admin" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+              <Link to="/admin" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
                 Administración
               </Link>
             )}
-            <Link to="/profile" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/profile" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Mi Perfil
             </Link>
             <button
               onClick={handleLogout}
-              className="text-white hover:bg-blue-600 block w-full text-left px-3 py-2 rounded-md text-base font-medium"
+              className="text-white hover:bg-[#196400] block w-full text-left px-3 py-2 rounded-md text-base font-medium"
             >
               Cerrar Sesión
             </button>
           </div>
         ) : (
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link to="/login" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/login" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Iniciar Sesión
             </Link>
-            <Link to="/registro" className="text-white hover:bg-blue-600 block px-3 py-2 rounded-md text-base font-medium">
+            <Link to="/registro" className="text-white hover:bg-[#196400] block px-3 py-2 rounded-md text-base font-medium">
               Registrarse
             </Link>
           </div>

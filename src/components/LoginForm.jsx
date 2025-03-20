@@ -53,12 +53,12 @@ export default function LoginForm() {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800">Iniciar Sesión</h2>
+        <h2 className="text-2xl font-bold text-[#39A900]">Iniciar Sesión</h2>
         <p className="text-gray-600">Accede a tu cuenta de CompuScan</p>
       </div>
 
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+        <div className="bg-orange-100 border border-[#FF6600] text-[#FF6600] px-4 py-3 rounded relative mb-4">
           <span className="block sm:inline">{error}</span>
         </div>
       )}
@@ -73,7 +73,7 @@ export default function LoginForm() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
             placeholder="correo@ejemplo.com"
             required
           />
@@ -88,7 +88,7 @@ export default function LoginForm() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
             placeholder="********"
             required
           />
@@ -97,7 +97,7 @@ export default function LoginForm() {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${
+            className={`bg-[#39A900] hover:bg-[#2D8C00] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${
               loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
             disabled={loading}
@@ -110,6 +110,10 @@ export default function LoginForm() {
           <div className="flex-grow border-t border-gray-300"></div>
           <span className="mx-4 text-gray-500">o</span>
           <div className="flex-grow border-t border-gray-300"></div>
+        </div>
+
+        <div className="mb-4 text-center text-sm text-gray-600">
+          <p>Si es tu primera vez usando Google, se te pedirá seleccionar tu rol (Aprendiz o Instructor).</p>
         </div>
 
         <button
@@ -136,7 +140,7 @@ export default function LoginForm() {
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
             ¿No tienes una cuenta?{' '}
-            <a href="/registro" className="text-blue-500 hover:text-blue-800">
+            <a href="/registro" className="text-[#FF6600] hover:text-[#E65C00]">
               Regístrate aquí
             </a>
           </p>

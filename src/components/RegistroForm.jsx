@@ -121,23 +121,23 @@ export default function RegistroForm() {
   return (
     <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-8">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-gray-800">Registro de Usuario</h2>
+        <h2 className="text-2xl font-bold text-[#39A900]">Registro de Usuario</h2>
         <p className="text-gray-600">Crea tu cuenta en CompuScan</p>
       </div>
 
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+        <div className="bg-orange-100 border border-[#FF6600] text-[#FF6600] px-4 py-3 rounded relative mb-4">
           <span className="block sm:inline">{error}</span>
         </div>
       )}
 
       {success && (
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+        <div className="bg-green-100 border border-[#39A900] text-[#39A900] px-4 py-3 rounded relative mb-4">
           <span className="block sm:inline">{success}</span>
         </div>
       )}
 
-      <div className="mb-6">
+      <div className="mb-2">
         <button
           type="button"
           onClick={handleGoogleRegister}
@@ -159,6 +159,10 @@ export default function RegistroForm() {
           Registrarse con Google
         </button>
       </div>
+      
+      <div className="mb-4 text-center text-sm text-gray-600">
+        <p>Al registrarte con Google, se te pedirá seleccionar si eres Aprendiz o Instructor.</p>
+      </div>
 
       <div className="flex items-center my-4">
         <div className="flex-grow border-t border-gray-300"></div>
@@ -178,7 +182,7 @@ export default function RegistroForm() {
               type="text"
               value={formData.nombre}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
               placeholder="Nombre"
               required
             />
@@ -194,7 +198,7 @@ export default function RegistroForm() {
               type="text"
               value={formData.apellido}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
               placeholder="Apellido"
               required
             />
@@ -211,7 +215,7 @@ export default function RegistroForm() {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
             placeholder="correo@ejemplo.com"
             required
           />
@@ -228,7 +232,7 @@ export default function RegistroForm() {
               type="password"
               value={formData.password}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
               placeholder="********"
               required
             />
@@ -244,7 +248,7 @@ export default function RegistroForm() {
               type="password"
               value={formData.confirmPassword}
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
               placeholder="********"
               required
             />
@@ -261,7 +265,7 @@ export default function RegistroForm() {
             type="text"
             value={formData.carnetRfid}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
             placeholder="ID del carnet RFID"
           />
         </div>
@@ -275,7 +279,7 @@ export default function RegistroForm() {
             name="tipo"
             value={formData.tipo}
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-[#39A900]"
             required
           >
             <option value="Aprendiz">Aprendiz</option>
@@ -286,7 +290,7 @@ export default function RegistroForm() {
         <div className="flex items-center justify-between">
           <button
             type="submit"
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${
+            className={`bg-[#39A900] hover:bg-[#2D8C00] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${
               loading ? 'opacity-50 cursor-not-allowed' : ''
             }`}
             disabled={loading}
@@ -298,7 +302,7 @@ export default function RegistroForm() {
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
             ¿Ya tienes una cuenta?{' '}
-            <a href="/login" className="text-blue-500 hover:text-blue-800">
+            <a href="/login" className="text-[#FF6600] hover:text-[#E65C00]">
               Inicia sesión aquí
             </a>
           </p>
