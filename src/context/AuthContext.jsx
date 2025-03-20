@@ -26,13 +26,33 @@ export function AuthProvider({ children }) {
   const [userRole, setUserRole] = useState(null);
 
   // Registrar usuario con email y contraseña
-  function signup(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+  async function signup(email, password) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // Obtener el token
+      const token = await userCredential.user.getIdToken();
+      // Guardar el token en sessionStorage
+      sessionStorage.setItem('authToken', token);
+      return userCredential;
+    } catch (error) {
+      console.error("Error en signup:", error);
+      throw error;
+    }
   }
 
   // Iniciar sesión con email y contraseña
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password);
+  async function login(email, password) {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      // Obtener el token
+      const token = await userCredential.user.getIdToken();
+      // Guardar el token en sessionStorage
+      sessionStorage.setItem('authToken', token);
+      return userCredential;
+    } catch (error) {
+      console.error("Error en login:", error);
+      throw error;
+    }
   }
 
   // Iniciar sesión con Google
@@ -41,6 +61,11 @@ export function AuthProvider({ children }) {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      
+      // Obtener el token
+      const token = await user.getIdToken();
+      // Guardar el token en sessionStorage
+      sessionStorage.setItem('authToken', token);
       
       // Verificar si es un nuevo usuario y guardar en Firestore
       if (result._tokenResponse?.isNewUser) {
@@ -63,8 +88,15 @@ export function AuthProvider({ children }) {
   }
 
   // Cerrar sesión
-  function logout() {
-    return signOut(auth);
+  async function logout() {
+    try {
+      await signOut(auth);
+      // Eliminar el token del sessionStorage
+      sessionStorage.removeItem('authToken');
+    } catch (error) {
+      console.error("Error en logout:", error);
+      throw error;
+    }
   }
 
   // Actualizar perfil de usuario
@@ -104,7 +136,15 @@ export function AuthProvider({ children }) {
   }, [currentUser]);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // Actualizar el token cuando cambia el estado de autenticación
+        const token = await user.getIdToken();
+        sessionStorage.setItem('authToken', token);
+      } else {
+        // Eliminar el token si no hay usuario
+        sessionStorage.removeItem('authToken');
+      }
       setCurrentUser(user);
       setLoading(false);
     });
